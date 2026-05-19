@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Libros – SERCAP</title>
+    <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="libros.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+            <div class="navbar-logo-icon"><img src="./img/logo.jpg" alt="Logo SERCAP"></div>
+            <span>SERCAP</span>
+        </a>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="index.html" class="navbar-link">Inicio</a></li>
+            <li><a href="index.html#sobre-nosotros" class="navbar-link">Sobre Nosotros</a></li>
+            <li><a href="libros.html" class="navbar-link active">Catálogo</a></li>
+            <li><a href="index.html#contacto" class="navbar-link">Contacto</a></li>
+            <li><a href="index.html#contacto" class="navbar-cta">Consultar →</a></li>
+        </ul>
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="catalog-hero">
+    <div class="catalog-hero-badge">📚 Catálogo 2026</div>
+    <h1>Nuestros <span>Libros</span> por Nivel</h1>
+    <p>Materiales educativos diseñados por docentes, para cada etapa del aprendizaje en Informática.</p>
+</section>
+
+<!-- ══ FILTROS ══ -->
+<div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="inicial">Nivel Inicial</button>
+    <button class="filter-btn" data-filter="primero">Primer Ciclo</button>
+    <button class="filter-btn" data-filter="segundo">Segundo Ciclo</button>
+    <button class="filter-btn" data-filter="tercero">Tercer Ciclo</button>
+    <button class="filter-btn" data-filter="medio">Nivel Medio</button>
+    <button class="filter-btn" data-filter="bach">Bachillerato</button>
+    <button class="filter-btn" data-filter="nuevos">Nuevos</button>
+</div>
+
+<!-- ══ CATÁLOGO ══ -->
+<main class="catalog-section">
+
+    <!-- ─ NIVEL INICIAL ─ -->
+    <div class="level-group fade-in" data-level="inicial">
+        <div class="level-header">
+            <span class="level-dot dot-inicial"></span>
+            <span class="level-label">Nivel Inicial</span>
+            <span class="level-count">2 libros</span>
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/nuevos libros.jpg" alt="Informática Inicial Tomo 1">
+                    <span class="book-level-badge badge-inicial">Nivel Inicial</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática Inicial – Tomo 1</p>
+                    <p class="book-subtitle">Primeros pasos en el mundo digital: manejo del equipo, teclado y software básico.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">Principiante</span>
+                        <span class="book-tag">Windows</span>
+                    </div>
+                    <a href="detalle-libro.html?id=inicial-1" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/nuevos libros.jpg" alt="Informática Inicial Tomo 2">
+                    <span class="book-level-badge badge-inicial">Nivel Inicial</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática Inicial – Tomo 2</p>
+                    <p class="book-subtitle">Introducción a procesadores de texto y hojas de cálculo para los más pequeños.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">Principiante</span>
+                        <span class="book-tag">Office</span>
+                    </div>
+                    <a href="detalle-libro.html?id=inicial-2" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─ PRIMER CICLO ─ -->
+    <div class="level-group fade-in" data-level="primero" style="transition-delay:.1s">
+        <div class="level-header">
+            <span class="level-dot dot-primero"></span>
+            <span class="level-label">Primer Ciclo</span>
+            <span class="level-count">3 libros</span>
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/primer ciclo.jpg" alt="Primer Ciclo Tomo 1">
+                    <span class="book-level-badge badge-primero">Primer Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Primer Ciclo Tomo 1</p>
+                    <p class="book-subtitle">Fundamentos de la computación, sistema operativo y aplicaciones de productividad.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">1.° Grado</span>
+                        <span class="book-tag">Windows 11</span>
+                    </div>
+                    <a href="detalle-libro.html?id=primero-1" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/primer ciclo.jpg" alt="Primer Ciclo Tomo 2">
+                    <span class="book-level-badge badge-primero">Primer Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Primer Ciclo Tomo 2</p>
+                    <p class="book-subtitle">Word y PowerPoint: habilidades esenciales para crear documentos y presentaciones.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">2.° Grado</span>
+                        <span class="book-tag">Office 365</span>
+                    </div>
+                    <a href="detalle-libro.html?id=primero-2" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/primer ciclo.jpg" alt="Primer Ciclo Tomo 3">
+                    <span class="book-level-badge badge-primero">Primer Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Primer Ciclo Tomo 3</p>
+                    <p class="book-subtitle">Excel básico e Internet: navegación segura y primeros pasos en la hoja de cálculo.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">3.° Grado</span>
+                        <span class="book-tag">Excel</span>
+                    </div>
+                    <a href="detalle-libro.html?id=primero-3" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─ SEGUNDO CICLO ─ -->
+    <div class="level-group fade-in" data-level="segundo" style="transition-delay:.15s">
+        <div class="level-header">
+            <span class="level-dot dot-segundo"></span>
+            <span class="level-label">Segundo Ciclo</span>
+            <span class="level-count">3 libros</span>
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/segundo ciclo.jpg" alt="Segundo Ciclo Tomo 1">
+                    <span class="book-level-badge badge-segundo">Segundo Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Segundo Ciclo Tomo 1</p>
+                    <p class="book-subtitle">Procesamiento de textos avanzado, diseño de documentos y primeros conceptos de red.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">4.° Grado</span>
+                        <span class="book-tag">Word</span>
+                    </div>
+                    <a href="detalle-libro.html?id=segundo-1" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/segundo ciclo.jpg" alt="Segundo Ciclo Tomo 2">
+                    <span class="book-level-badge badge-segundo">Segundo Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Segundo Ciclo Tomo 2</p>
+                    <p class="book-subtitle">Excel intermedio: fórmulas, gráficos y análisis de datos para el aula.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">5.° Grado</span>
+                        <span class="book-tag">Excel</span>
+                    </div>
+                    <a href="detalle-libro.html?id=segundo-2" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/segundo ciclo.jpg" alt="Segundo Ciclo Tomo 3">
+                    <span class="book-level-badge badge-segundo">Segundo Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Segundo Ciclo Tomo 3</p>
+                    <p class="book-subtitle">Presentaciones dinámicas con PowerPoint y herramientas colaborativas en la nube.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">6.° Grado</span>
+                        <span class="book-tag">PowerPoint</span>
+                    </div>
+                    <a href="detalle-libro.html?id=segundo-3" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─ TERCER CICLO ─ -->
+    <div class="level-group fade-in" data-level="tercero" style="transition-delay:.2s">
+        <div class="level-header">
+            <span class="level-dot dot-tercero"></span>
+            <span class="level-label">Tercer Ciclo</span>
+            <span class="level-count">3 libros</span>
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/tercer ciclo.jpg" alt="Tercer Ciclo Tomo 1">
+                    <span class="book-level-badge badge-tercero">Tercer Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Tercer Ciclo Tomo 1</p>
+                    <p class="book-subtitle">Introducción a la programación, lógica computacional y algoritmos básicos.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">7.° Grado</span>
+                        <span class="book-tag">Programación</span>
+                    </div>
+                    <a href="detalle-libro.html?id=tercero-1" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/tercer ciclo.jpg" alt="Tercer Ciclo Tomo 2">
+                    <span class="book-level-badge badge-tercero">Tercer Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Tercer Ciclo Tomo 2</p>
+                    <p class="book-subtitle">Bases de datos, redes y seguridad informática básica para estudiantes.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">8.° Grado</span>
+                        <span class="book-tag">Redes</span>
+                    </div>
+                    <a href="detalle-libro.html?id=tercero-2" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/tercer ciclo.jpg" alt="Tercer Ciclo Tomo 3">
+                    <span class="book-level-badge badge-tercero">Tercer Ciclo</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Tercer Ciclo Tomo 3</p>
+                    <p class="book-subtitle">Diseño gráfico y multimedia: herramientas creativas para proyectos escolares.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">9.° Grado</span>
+                        <span class="book-tag">Diseño</span>
+                    </div>
+                    <a href="detalle-libro.html?id=tercero-3" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─ NIVEL MEDIO ─ -->
+    <div class="level-group fade-in" data-level="medio" style="transition-delay:.25s">
+        <div class="level-header">
+            <span class="level-dot dot-medio"></span>
+            <span class="level-label">Nivel Medio</span>
+            <span class="level-count">3 libros</span>
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/nivel medio.jpg" alt="Nivel Medio Tomo 1">
+                    <span class="book-level-badge badge-medio">Nivel Medio</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Nivel Medio Tomo 1</p>
+                    <p class="book-subtitle">Suite Office avanzada: integración de Word, Excel y PowerPoint en proyectos reales.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">1.° Medio</span>
+                        <span class="book-tag">Office Avanzado</span>
+                    </div>
+                    <a href="detalle-libro.html?id=medio-1" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/nivel medio.jpg" alt="Nivel Medio Tomo 2">
+                    <span class="book-level-badge badge-medio">Nivel Medio</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Nivel Medio Tomo 2</p>
+                    <p class="book-subtitle">Programación con Python: lógica, estructuras de control y proyectos prácticos.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">2.° Medio</span>
+                        <span class="book-tag">Python</span>
+                    </div>
+                    <a href="detalle-libro.html?id=medio-2" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/nivel medio.jpg" alt="Nivel Medio Tomo 3">
+                    <span class="book-level-badge badge-medio">Nivel Medio</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Informática – Nivel Medio Tomo 3</p>
+                    <p class="book-subtitle">Desarrollo web: HTML, CSS y primeros pasos en JavaScript para crear sitios propios.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">3.° Medio</span>
+                        <span class="book-tag">Web</span>
+                    </div>
+                    <a href="detalle-libro.html?id=medio-3" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─ BACHILLERATO ─ -->
+    <div class="level-group fade-in" data-level="bach" style="transition-delay:.3s">
+        <div class="level-header">
+            <span class="level-dot dot-bach"></span>
+            <span class="level-label">Bachillerato Técnico en Informática</span>
+            <span class="level-count">2 libros</span>
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/bachillerato.jpg" alt="Bachillerato Tomo 1">
+                    <span class="book-level-badge badge-bach">Bachillerato</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Bachillerato Técnico – Tomo 1</p>
+                    <p class="book-subtitle">Programación orientada a objetos, estructuras de datos y manejo de bases de datos SQL.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">1.° Bach.</span>
+                        <span class="book-tag">POO · SQL</span>
+                    </div>
+                    <a href="detalle-libro.html?id=bach-1" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/bachillerato.jpg" alt="Bachillerato Tomo 2">
+                    <span class="book-level-badge badge-bach">Bachillerato</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Bachillerato Técnico – Tomo 2</p>
+                    <p class="book-subtitle">Redes, administración de sistemas y proyectos de software en entorno profesional.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">2.° Bach.</span>
+                        <span class="book-tag">Redes · Sistemas</span>
+                    </div>
+                    <a href="detalle-libro.html?id=bach-2" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─ NUEVOS LIBROS ─ -->
+    <div class="level-group fade-in" data-level="nuevos" style="transition-delay:.35s">
+        <div class="level-header">
+            <span class="level-dot dot-nuevos"></span>
+            <span class="level-label">✨ Nuevos Lanzamientos</span>
+            <span class="level-count">2 libros</span>
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/nuevos libros.jpg" alt="Inteligencia Artificial para Estudiantes">
+                    <span class="book-level-badge badge-nuevos">Nuevo 2026</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">IA para Estudiantes</p>
+                    <p class="book-subtitle">Conceptos de Inteligencia Artificial, Machine Learning y herramientas del futuro.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">Todos los niveles</span>
+                        <span class="book-tag">IA</span>
+                    </div>
+                    <a href="detalle-libro.html?id=nuevos-1" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <img src="./img/libros/nuevos libros.jpg" alt="Ciberseguridad Básica">
+                    <span class="book-level-badge badge-nuevos">Nuevo 2026</span>
+                </div>
+                <div class="book-body">
+                    <p class="book-title">Ciberseguridad Básica</p>
+                    <p class="book-subtitle">Protección digital, privacidad en línea y buenas prácticas de seguridad informática.</p>
+                    <div class="book-meta">
+                        <span class="book-tag">Medio / Bach.</span>
+                        <span class="book-tag">Seguridad</span>
+                    </div>
+                    <a href="detalle-libro.html?id=nuevos-2" class="btn-detail">
+                        Ver más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+    <p>© 2026 <strong>SERCAP</strong>. Todos los derechos reservados. &nbsp;·&nbsp; <a href="index.html">Volver al inicio</a></p>
+</footer>
+
+<script src="libros.js"></script>
+</body>
+</html>

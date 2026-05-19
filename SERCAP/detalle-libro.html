@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Libro – SERCAP</title>
+    <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="detalle-libro.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+            <div class="navbar-logo-icon"><img src="./img/logo.jpg" alt="Logo SERCAP"></div>
+            <span>SERCAP</span>
+        </a>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="index.html" class="navbar-link">Inicio</a></li>
+            <li><a href="index.html#sobre-nosotros" class="navbar-link">Sobre Nosotros</a></li>
+            <li><a href="libros.html" class="navbar-link active">Catálogo</a></li>
+            <li><a href="index.html#contacto" class="navbar-link">Contacto</a></li>
+            <li><a href="index.html#contacto" class="navbar-cta">Consultar →</a></li>
+        </ul>
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ══ BREADCRUMB ══ -->
+<nav class="breadcrumb">
+    <a href="index.html">Inicio</a>
+    <span>›</span>
+    <a href="libros.html">Catálogo</a>
+    <span>›</span>
+    <span id="bc-title" style="color:var(--gray-900);font-weight:600;">Libro</span>
+</nav>
+
+<!-- ══ CONTENIDO PRINCIPAL ══ -->
+<div class="book-hero">
+
+    <!-- Cover -->
+    <div class="cover-col fade-in">
+        <div class="cover-card">
+            <img id="book-img" src="./img/libros/nuevos libros.jpg" alt="Portada del libro">
+        </div>
+        <div class="cover-actions">
+            <a href="index.html#contacto" class="btn-primary">📞 Consultar precio</a>
+            <a href="libros.html" class="btn-outline">← Volver al catálogo</a>
+        </div>
+    </div>
+
+    <!-- Info -->
+    <div class="info-col">
+
+        <span class="level-badge-detail" id="book-badge" style="background:var(--purple-100);color:var(--purple-700);">Nivel</span>
+
+        <h1 class="book-title-detail" id="book-title">Cargando…</h1>
+        <p class="book-subtitle-detail" id="book-subtitle"></p>
+
+        <div class="meta-row" id="book-meta"></div>
+
+        <div class="rating-row">
+            <span class="stars">★★★★★</span>
+            <span class="rating-num">5.0</span>
+            <span class="rating-reviews">· Docentes verificados</span>
+        </div>
+
+        <p class="section-sub">Descripción</p>
+        <p class="desc-text" id="book-desc"></p>
+
+        <p class="section-sub">Contenido del libro</p>
+        <ul class="toc-list" id="book-toc"></ul>
+
+        <p class="section-sub">¿Qué incluye?</p>
+        <div class="features-grid">
+            <div class="feature-box"><div class="feature-icon">📖</div><div class="feature-label">Material impreso de calidad</div></div>
+            <div class="feature-box"><div class="feature-icon">💻</div><div class="feature-label">Recursos digitales complementarios</div></div>
+            <div class="feature-box"><div class="feature-icon">🎯</div><div class="feature-label">Ejercicios prácticos por unidad</div></div>
+            <div class="feature-box"><div class="feature-icon">🏆</div><div class="feature-label">Alineado al programa oficial</div></div>
+            <div class="feature-box"><div class="feature-icon">🔄</div><div class="feature-label">Actualización 2026</div></div>
+            <div class="feature-box"><div class="feature-icon">🤝</div><div class="feature-label">Soporte docente incluido</div></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ══ LIBROS RELACIONADOS ══ -->
+<section class="related-section">
+    <div class="related-inner">
+        <h2 class="related-title">También te puede interesar</h2>
+        <div class="related-grid" id="related-grid"></div>
+    </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+    <p>© 2026 <strong>SERCAP</strong>. Todos los derechos reservados. &nbsp;·&nbsp; <a href="index.html">Volver al inicio</a></p>
+</footer>
+
+<script src="detalle-libro.js"></script>
+</body>
+</html>
