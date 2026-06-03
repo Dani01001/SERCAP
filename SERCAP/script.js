@@ -122,16 +122,43 @@ document.getElementById('prevBtn').addEventListener('click', function () { prevS
 document.getElementById('nextBtn').addEventListener('click', function () { nextSlide(); resetAutoPlay(); });
 // Arrancar auto-play
 autoPlayInterval = setInterval(nextSlide, 5500);
-// ===== FORMULARIO DE CONTACTO =====
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const data = {
-        name:    document.getElementById('name').value,
-        email:   document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value,
-    };
-    console.log('Formulario enviado:', data);
-    alert('✅ ¡Mensaje enviado! Te contactaremos pronto.');
-    this.reset();
-});
+// ===== FORMULARIO DE CONTACTO (Formspree) =====
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const btn = this.querySelector('button[type="submit"]');
+        const originalText = btn.textContent;
+        btn.textContent = 'Enviando…';
+        btn.disabled = true;
+
+        try {
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                btn.textContent = '✅ ¡Mensaje enviado!';
+                btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
+                this.reset();
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 4000);
+            } else {
+                throw new Error('Error al enviar');
+            }
+        } catch {
+            btn.textContent = '❌ Error, intenta de nuevo';
+            btn.style.background = 'linear-gradient(135deg,#ef4444,#dc2626)';
+            btn.disabled = false;
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+            }, 3500);
+        }
+    });
+}
