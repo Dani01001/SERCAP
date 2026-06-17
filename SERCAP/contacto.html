@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactá a SERCAP. Estamos disponibles por email, teléfono y WhatsApp para responder tus consultas.">
+    <title>Contacto – SERCAP</title>
+    <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="legal.css">
+    <style>
+        .contacto-hero {
+            margin-top:72px;
+            background:linear-gradient(135deg,var(--purple-950) 0%,var(--purple-800) 60%,#0d3b8c 100%);
+            padding:4rem 1.5rem 5rem; text-align:center; position:relative; overflow:hidden;
+        }
+        .contacto-hero::before {
+            content:''; position:absolute; inset:0;
+            background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(59,130,246,.18) 0%,transparent 70%);
+        }
+        .contacto-hero-badge {
+            display:inline-flex; align-items:center; gap:.4rem;
+            background:rgba(96,165,250,.15); border:1px solid rgba(96,165,250,.35);
+            color:var(--teal-300); padding:.35rem 1rem; border-radius:100px;
+            font-size:.8rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+            margin-bottom:1.25rem; position:relative;
+        }
+        .contacto-hero h1 {
+            font-family:var(--font-display); font-size:clamp(2rem,5vw,3rem); font-weight:900;
+            color:#fff; margin-bottom:1rem; line-height:1.15; position:relative;
+        }
+        .contacto-hero h1 span {
+            background:linear-gradient(135deg,var(--teal-300),var(--purple-500));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .contacto-hero p { color:var(--purple-200); max-width:500px; margin:0 auto; font-size:1rem; position:relative; }
+
+        /* Body */
+        .contacto-body { max-width:960px; margin:0 auto; padding:4rem 1.5rem 6rem; }
+        .contacto-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:2.5rem; align-items:start; }
+
+        /* Info cards */
+        .info-cards { display:flex; flex-direction:column; gap:1rem; }
+        .info-card {
+            background:#fff; border:1px solid var(--purple-100); border-radius:16px;
+            padding:1.25rem 1.5rem; display:flex; align-items:center; gap:1rem;
+            box-shadow:0 2px 12px rgba(29,78,216,.06);
+            transition:transform .25s;
+        }
+        .info-card:hover { transform:translateX(6px); }
+        .info-icon { font-size:1.6rem; flex-shrink:0; width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:var(--purple-50); border-radius:12px; }
+        .info-label { font-size:.78rem; font-weight:700; color:var(--gray-600); text-transform:uppercase; letter-spacing:.04em; margin-bottom:.15rem; }
+        .info-value { font-size:.95rem; font-weight:600; color:var(--purple-900); }
+        .info-value a { color:var(--purple-700); }
+        .info-value a:hover { text-decoration:underline; }
+
+        /* WhatsApp card */
+        .whatsapp-card {
+            background:linear-gradient(135deg,#25D366,#128C7E);
+            border:none; border-radius:16px; padding:1.5rem;
+            text-align:center; color:#fff; margin-top:.5rem;
+            box-shadow:0 6px 24px rgba(37,211,102,.3);
+            transition:transform .25s, box-shadow .25s;
+        }
+        .whatsapp-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(37,211,102,.4); }
+        .whatsapp-card svg { display:block; margin:0 auto .75rem; }
+        .whatsapp-card p { margin-bottom:.35rem; }
+        .whatsapp-card .wa-title { font-family:var(--font-display); font-size:1.1rem; font-weight:800; }
+        .whatsapp-card .wa-sub { font-size:.85rem; opacity:.9; }
+        .whatsapp-card .wa-btn {
+            display:inline-block; margin-top:1rem; background:#fff; color:#128C7E;
+            padding:.6rem 1.5rem; border-radius:100px; font-weight:700; font-size:.9rem;
+            transition:transform .2s;
+        }
+        .whatsapp-card .wa-btn:hover { transform:scale(1.05); }
+
+        /* Formulario */
+        .form-card {
+            background:#fff; border:1px solid var(--purple-100); border-radius:20px;
+            padding:2.5rem; box-shadow:0 4px 24px rgba(29,78,216,.07);
+        }
+        .form-card h2 { font-family:var(--font-display); font-size:1.4rem; font-weight:800; color:var(--purple-900); margin-bottom:.5rem; }
+        .form-card p { color:var(--gray-600); font-size:.9rem; margin-bottom:1.75rem; }
+        .form-group { margin-bottom:1.25rem; }
+        .form-label { display:block; font-size:.875rem; font-weight:600; color:var(--gray-700); margin-bottom:.4rem; }
+        .form-input, .form-select, .form-textarea {
+            width:100%; padding:.75rem 1rem; border:2px solid var(--purple-100);
+            border-radius:12px; font-family:var(--font-body); font-size:.9rem;
+            color:var(--gray-900); background:#fff; transition:border-color .2s;
+            outline:none;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--purple-700); }
+        .form-textarea { height:130px; resize:vertical; }
+        .form-select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234B5563' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; }
+        .btn-submit-c {
+            width:100%; padding:.9rem; border-radius:100px;
+            background:linear-gradient(135deg,var(--purple-700),var(--purple-900));
+            color:#fff; font-size:1rem; font-weight:700; font-family:var(--font-body);
+            border:none; cursor:pointer; transition:transform .25s,box-shadow .25s;
+        }
+        .btn-submit-c:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(29,78,216,.3); }
+
+        /* WhatsApp FAB */
+        .whatsapp-fab { position:fixed; bottom:1.75rem; right:1.75rem; z-index:9999; width:58px; height:58px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 24px rgba(37,211,102,.45); transition:transform .3s,box-shadow .3s; }
+        .whatsapp-fab:hover { transform:scale(1.12) translateY(-3px); box-shadow:0 12px 32px rgba(37,211,102,.55); }
+
+        @media(max-width:768px) {
+            .contacto-grid { grid-template-columns:1fr; }
+            .contacto-body { padding:2.5rem 1rem 4rem; }
+            .form-card { padding:1.75rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+            <div class="navbar-logo-icon"><img src="./img/logo.jpg" alt="Logo SERCAP"></div>
+            <span>SERCAP</span>
+        </a>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="index.html" class="navbar-link">Inicio</a></li>
+            <li><a href="nosotros.html" class="navbar-link">Nosotros</a></li>
+            <li><a href="libros.html" class="navbar-link">Catálogo</a></li>
+            <li><a href="faq.html" class="navbar-link">FAQ</a></li>
+            <li><a href="contacto.html" class="navbar-link active">Contacto</a></li>
+            <li><a href="libros.html" class="navbar-cta">Ver Libros</a></li>
+        </ul>
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="contacto-hero">
+    <div class="contacto-hero-badge">Contacto</div>
+    <h1><span>Contactanos</span></h1>
+    <p>Estamos disponibles para responder tus consultas sobre libros, precios, instituciones o cualquier otra duda.</p>
+</section>
+
+<!-- ══ CONTENIDO ══ -->
+<div class="contacto-body">
+    <div class="contacto-grid">
+
+        <!-- Columna izquierda: info -->
+        <div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg></div>
+                    <div>
+                        <div class="info-label">Email</div>
+                        <div class="info-value"><a href="mailto:info@sercap.com.py">info@sercap.com.py</a></div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.88 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+                    <div>
+                        <div class="info-label">Teléfono</div>
+                        <div class="info-value"><a href="tel:+595981911679">+595 981 911 679</a></div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                    <div>
+                        <div class="info-label">Dirección</div>
+                        <div class="info-value">Río Salado c/ Ntra. Sra. de la Asunción, Paraguay</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <div>
+                        <div class="info-label">Horario de Atención</div>
+                        <div class="info-value">Lun – Vie: 07:00 a 17:00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatsApp destacado -->
+            <a href="https://wa.me/595981911679?text=Hola%20SERCAP%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" class="whatsapp-card" style="display:block; text-decoration:none; margin-top:1.25rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="36" height="36">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <p class="wa-title">Escribinos por WhatsApp</p>
+                <p class="wa-sub">Respondemos en horario de atención</p>
+                <span class="wa-btn">Abrir WhatsApp →</span>
+            </a>
+        </div>
+
+        <!-- Columna derecha: formulario -->
+        <div class="form-card">
+            <h2>Envianos un mensaje</h2>
+            <p>Completá el formulario y te respondemos a la brevedad.</p>
+            <form id="contactForm" action="https://formspree.io/info@sercap.com.py" method="POST">
+                <div class="form-group">
+                    <label class="form-label" for="name">Nombre completo</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="motivo">Motivo de consulta</label>
+                    <select id="motivo" name="motivo" class="form-select" required>
+                        <option value="" disabled selected>Seleccioná una opción</option>
+                        <option value="libros">Consulta sobre libros</option>
+                        <option value="precios">Precios y disponibilidad</option>
+                        <option value="instituciones">Compras institucionales</option>
+                        <option value="robotica">Área de Robótica</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Mensaje</label>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="Escribí tu consulta aquí..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit-c">Enviar mensaje</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-logo">
+                    <div class="navbar-logo-icon"><img src="./img/logo.jpg" alt="Logo SERCAP"></div>
+                    SERCAP
+                </div>
+                <p class="footer-description">Desde 1995 transformando la educación en Informática con materiales didácticos innovadores para estudiantes, docentes e instituciones de Paraguay.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/people/Sercap/100063631775891/" class="social-link" aria-label="Facebook" target="_blank"><img src="./img/mini-icons/fb-icon.svg" alt="Facebook" width="20px"></a>
+                    <a href="https://www.instagram.com/sercap1995?igsh=cTNyZ2Y4M3Jtcmlj" class="social-link" aria-label="Instagram" target="_blank"><img src="./img/mini-icons/ig-icon.svg" alt="Instagram" style="width:20px;border-radius:4px;"></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Catálogo</h4>
+                <ul class="footer-links">
+                    <li><a href="libros.html">Ver todos los libros</a></li>
+                    <li><a href="libros.html">Nivel Inicial</a></li>
+                    <li><a href="libros.html">Primer y Segundo Ciclo</a></li>
+                    <li><a href="libros.html">Bachillerato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="nosotros.html#equipo">Nuestro Equipo</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html" class="active-page">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="terminos-y-condiciones.html">Términos y Condiciones</a></li>
+                    <li><a href="politica-de-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="aviso-legal.html">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <span>© 2026 SERCAP. Todos los derechos reservados.</span>
+            <span>Hecho para estudiantes de Paraguay</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/595981911679?text=Hola%20SERCAP%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
+   class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+<script src="legal.js"></script>
+<script>
+const cf = document.getElementById('contactForm');
+if (cf) {
+    cf.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button[type="submit"]');
+        const orig = btn.textContent;
+        btn.textContent = 'Enviando…'; btn.disabled = true;
+        try {
+            const res = await fetch(this.action, { method:'POST', body:new FormData(this), headers:{'Accept':'application/json'} });
+            if (res.ok) {
+                btn.textContent = 'Mensaje enviado';
+                btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
+                this.reset();
+                setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+            } else throw new Error();
+        } catch {
+            btn.textContent = 'Error, volvé a intentar';
+            btn.style.background = 'linear-gradient(135deg,#ef4444,#dc2626)';
+            btn.disabled = false;
+            setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3500);
+        }
+    });
+}
+</script>
+</body>
+</html>

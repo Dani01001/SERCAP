@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Preguntas frecuentes sobre los libros, precios y servicios de SERCAP.">
+    <title>Preguntas Frecuentes – SERCAP</title>
+    <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="legal.css">
+    <style>
+        .faq-hero {
+            margin-top:72px;
+            background:linear-gradient(135deg,var(--purple-950) 0%,var(--purple-800) 60%,#0d3b8c 100%);
+            padding:4rem 1.5rem 5rem; text-align:center; position:relative; overflow:hidden;
+        }
+        .faq-hero::before {
+            content:''; position:absolute; inset:0;
+            background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(59,130,246,.18) 0%,transparent 70%);
+        }
+        .faq-hero-badge {
+            display:inline-flex; align-items:center; gap:.4rem;
+            background:rgba(96,165,250,.15); border:1px solid rgba(96,165,250,.35);
+            color:var(--teal-300); padding:.35rem 1rem; border-radius:100px;
+            font-size:.8rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+            margin-bottom:1.25rem; position:relative;
+        }
+        .faq-hero h1 {
+            font-family:var(--font-display); font-size:clamp(2rem,5vw,3rem); font-weight:900;
+            color:#fff; margin-bottom:1rem; line-height:1.15; position:relative;
+        }
+        .faq-hero h1 span {
+            background:linear-gradient(135deg,var(--teal-300),var(--purple-500));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .faq-hero p { color:var(--purple-200); max-width:500px; margin:0 auto; font-size:1rem; position:relative; }
+
+        /* Body */
+        .faq-body { max-width:800px; margin:0 auto; padding:4rem 1.5rem 6rem; }
+
+        /* Categorías */
+        .faq-category { margin-bottom:2.5rem; }
+        .faq-cat-title {
+            font-family:var(--font-display); font-size:1.1rem; font-weight:800;
+            color:var(--purple-900); margin-bottom:1rem;
+            display:flex; align-items:center; gap:.5rem;
+            padding-bottom:.6rem; border-bottom:2px solid var(--purple-100);
+        }
+
+        /* Accordion */
+        .faq-item {
+            background:#fff; border:1px solid var(--purple-100); border-radius:16px;
+            margin-bottom:.75rem; overflow:hidden;
+            box-shadow:0 2px 10px rgba(29,78,216,.05);
+            transition:box-shadow .25s;
+        }
+        .faq-item:hover { box-shadow:0 6px 20px rgba(29,78,216,.1); }
+        .faq-question {
+            width:100%; text-align:left; padding:1.1rem 1.4rem;
+            background:none; border:none; cursor:pointer;
+            display:flex; justify-content:space-between; align-items:center;
+            font-family:var(--font-body); font-size:.95rem; font-weight:700;
+            color:var(--purple-900); gap:1rem;
+            transition:color .2s;
+        }
+        .faq-question:hover { color:var(--purple-700); }
+        .faq-icon {
+            width:28px; height:28px; border-radius:50%; flex-shrink:0;
+            background:var(--purple-50); color:var(--purple-700);
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.1rem; font-weight:700; transition:transform .3s, background .25s;
+        }
+        .faq-item.open .faq-icon { transform:rotate(45deg); background:var(--purple-700); color:#fff; }
+        .faq-answer {
+            max-height:0; overflow:hidden;
+            transition:max-height .4s ease, padding .3s ease;
+            padding:0 1.4rem;
+        }
+        .faq-item.open .faq-answer { max-height:300px; padding-bottom:1.25rem; }
+        .faq-answer p { color:var(--gray-600); line-height:1.85; font-size:.9rem; }
+        .faq-answer a { color:var(--purple-700); font-weight:600; }
+        .faq-answer a:hover { text-decoration:underline; }
+
+        /* CTA final */
+        .faq-cta {
+            background:linear-gradient(135deg,var(--purple-950),var(--purple-800));
+            border-radius:20px; padding:2.5rem; text-align:center; margin-top:3rem;
+        }
+        .faq-cta h3 { font-family:var(--font-display); font-size:1.4rem; font-weight:800; color:#fff; margin-bottom:.6rem; }
+        .faq-cta p { color:var(--purple-200); margin-bottom:1.5rem; font-size:.95rem; }
+        .faq-cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+        .btn-cta-white { padding:.75rem 1.75rem; border-radius:100px; background:#fff; color:var(--purple-900); font-weight:700; font-size:.9rem; transition:transform .2s; }
+        .btn-cta-white:hover { transform:translateY(-2px); }
+        .btn-cta-green { padding:.75rem 1.75rem; border-radius:100px; background:#25D366; color:#fff; font-weight:700; font-size:.9rem; transition:transform .2s; }
+        .btn-cta-green:hover { transform:translateY(-2px); }
+
+        /* WhatsApp FAB */
+        .whatsapp-fab { position:fixed; bottom:1.75rem; right:1.75rem; z-index:9999; width:58px; height:58px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 24px rgba(37,211,102,.45); transition:transform .3s,box-shadow .3s; }
+        .whatsapp-fab:hover { transform:scale(1.12) translateY(-3px); box-shadow:0 12px 32px rgba(37,211,102,.55); }
+
+        @media(max-width:768px) {
+            .faq-body { padding:2.5rem 1rem 4rem; }
+            .faq-cta { padding:1.75rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+            <div class="navbar-logo-icon"><img src="./img/logo.jpg" alt="Logo SERCAP"></div>
+            <span>SERCAP</span>
+        </a>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="index.html" class="navbar-link">Inicio</a></li>
+            <li><a href="nosotros.html" class="navbar-link">Nosotros</a></li>
+            <li><a href="libros.html" class="navbar-link">Catálogo</a></li>
+            <li><a href="faq.html" class="navbar-link active">FAQ</a></li>
+            <li><a href="contacto.html" class="navbar-link">Contacto</a></li>
+            <li><a href="libros.html" class="navbar-cta">Ver Libros</a></li>
+        </ul>
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="faq-hero">
+    <div class="faq-hero-badge">Preguntas</div>
+    <h1>Preguntas <span>Frecuentes</span></h1>
+    <p>Encontrá respuestas a las consultas más comunes sobre nuestros libros, precios y servicios.</p>
+</section>
+
+<!-- ══ CONTENIDO ══ -->
+<div class="faq-body">
+
+    <!-- Sobre los libros -->
+    <div class="faq-category">
+        <div class="faq-cat-title">Sobre los libros</div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Para qué niveles educativos están disponibles los libros?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Contamos con libros para todos los niveles: <strong>Nivel Inicial (PE y J)</strong>, <strong>Primer Ciclo (Niveles 1, 2 y 3)</strong>, <strong>Segundo Ciclo (Niveles 4, 5 y 6)</strong>, <strong>Tercer Ciclo (Niveles 7, 8 y 9)</strong>, <strong>Nivel Medio</strong> y <strong>Bachillerato Técnico en Informática</strong>. Podés ver el catálogo completo en <a href="libros.html">nuestra página de libros</a>.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Los libros están alineados al currículo oficial?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Sí. Todos nuestros materiales están diseñados y actualizados en concordancia con el currículo del <strong>Ministerio de Educación y Ciencias (MEC) de Paraguay</strong>, garantizando su uso efectivo en el aula.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Los libros están disponibles en versión digital?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Actualmente nuestros libros se comercializan en <strong>formato impreso</strong>. Para consultas sobre disponibilidad digital o recursos complementarios, podés <a href="contacto.html">contactarnos directamente</a>.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Con qué frecuencia se actualizan los libros?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Revisamos y actualizamos nuestros materiales <strong>periódicamente</strong> para incorporar las últimas novedades tecnológicas y cambios curriculares. La edición actual es <strong>2026</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compras y precios -->
+    <div class="faq-category">
+        <div class="faq-cat-title">Compras y precios</div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Cómo puedo adquirir los libros?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Podés adquirir nuestros libros <strong>directamente en nuestra sede</strong> ubicada en Río Salado c/ Ntra. Sra. de la Asunción, Paraguay, o realizando una consulta por <a href="https://wa.me/595981911679" target="_blank">WhatsApp al +595 981 911 679</a> o por <a href="mailto:info@sercap.com.py">email</a>.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Ofrecen descuentos para instituciones educativas?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Sí, contamos con <strong>precios especiales para compras institucionales</strong> (colegios, escuelas, institutos). Contactanos para recibir una cotización personalizada según el volumen y niveles requeridos.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Realizan envíos a todo el país?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Sí, realizamos envíos a todo el territorio de <strong>Paraguay</strong>. Los costos y tiempos de envío dependen de la localidad. Consultanos por <a href="contacto.html">nuestros canales de contacto</a> para más información.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sobre SERCAP -->
+    <div class="faq-category">
+        <div class="faq-cat-title">Sobre SERCAP</div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Cuántos años lleva SERCAP en el mercado?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>SERCAP fue fundada en <strong>1995</strong>, lo que nos da más de <strong>31 años de experiencia</strong> en educación informática. En ese tiempo hemos formado a miles de estudiantes y acompañado a cientos de instituciones educativas en Paraguay.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Ofrecen capacitaciones o cursos además de los libros?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Sí, además de nuestros materiales didácticos ofrecemos <strong>capacitaciones presenciales y virtuales</strong> para docentes, estudiantes e instituciones. También contamos con un área especializada en <strong>Robótica</strong>. <a href="contacto.html">Consultanos</a> para más detalles.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                ¿Cómo puedo ser docente o colaborador de SERCAP?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Si estás interesado en colaborar con SERCAP como docente o en cualquier otra área, podés enviarnos tu CV y carta de presentación a <a href="mailto:info@sercap.com.py">info@sercap.com.py</a> indicando en el asunto "Postulación".</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="faq-cta">
+        <h3>¿No encontraste lo que buscabas?</h3>
+        <p>Nuestro equipo está disponible para responder cualquier consulta de lunes a viernes de 07:00 a 17:00.</p>
+        <div class="faq-cta-btns">
+            <a href="contacto.html" class="btn-cta-white">Envianos un mensaje</a>
+            <a href="https://wa.me/595981911679?text=Hola%20SERCAP%2C%20tengo%20una%20consulta." target="_blank" class="btn-cta-green">WhatsApp</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-logo">
+                    <div class="navbar-logo-icon"><img src="./img/logo.jpg" alt="Logo SERCAP"></div>
+                    SERCAP
+                </div>
+                <p class="footer-description">Desde 1995 transformando la educación en Informática con materiales didácticos innovadores para estudiantes, docentes e instituciones de Paraguay.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/people/Sercap/100063631775891/" class="social-link" aria-label="Facebook" target="_blank"><img src="./img/mini-icons/fb-icon.svg" alt="Facebook" width="20px"></a>
+                    <a href="https://www.instagram.com/sercap1995?igsh=cTNyZ2Y4M3Jtcmlj" class="social-link" aria-label="Instagram" target="_blank"><img src="./img/mini-icons/ig-icon.svg" alt="Instagram" style="width:20px;border-radius:4px;"></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Catálogo</h4>
+                <ul class="footer-links">
+                    <li><a href="libros.html">Ver todos los libros</a></li>
+                    <li><a href="libros.html">Nivel Inicial</a></li>
+                    <li><a href="libros.html">Primer y Segundo Ciclo</a></li>
+                    <li><a href="libros.html">Bachillerato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="nosotros.html#equipo">Nuestro Equipo</a></li>
+                    <li><a href="faq.html" class="active-page">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="terminos-y-condiciones.html">Términos y Condiciones</a></li>
+                    <li><a href="politica-de-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="aviso-legal.html">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <span>© 2026 SERCAP. Todos los derechos reservados.</span>
+            <span>Hecho para estudiantes de Paraguay</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/595981911679?text=Hola%20SERCAP%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
+   class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+<script src="legal.js"></script>
+<script>
+// Accordion FAQ
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    });
+});
+</script>
+</body>
+</html>

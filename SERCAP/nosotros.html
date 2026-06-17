@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conocé la historia de SERCAP, más de 31 años transformando la educación en Informática en Paraguay.">
+    <title>Sobre Nosotros – SERCAP</title>
+    <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="legal.css">
+    <style>
+        /* ── Página Nosotros ── */
+        .nosotros-hero {
+            margin-top:72px;
+            background:linear-gradient(135deg,var(--purple-950) 0%,var(--purple-800) 60%,#0d3b8c 100%);
+            padding:4rem 1.5rem 5rem; text-align:center; position:relative; overflow:hidden;
+        }
+        .nosotros-hero::before {
+            content:''; position:absolute; inset:0;
+            background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(59,130,246,.18) 0%,transparent 70%);
+        }
+        .nosotros-hero-badge {
+            display:inline-flex; align-items:center; gap:.4rem;
+            background:rgba(96,165,250,.15); border:1px solid rgba(96,165,250,.35);
+            color:var(--teal-300); padding:.35rem 1rem; border-radius:100px;
+            font-size:.8rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+            margin-bottom:1.25rem; position:relative;
+        }
+        .nosotros-hero h1 {
+            font-family:var(--font-display); font-size:clamp(2rem,5vw,3rem); font-weight:900;
+            color:#fff; margin-bottom:1rem; line-height:1.15; position:relative;
+        }
+        .nosotros-hero h1 span {
+            background:linear-gradient(135deg,var(--teal-300),var(--purple-500));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .nosotros-hero p { color:var(--purple-200); max-width:520px; margin:0 auto; font-size:1rem; position:relative; }
+
+        /* ── Body ── */
+        .nosotros-body { max-width:900px; margin:0 auto; padding:4rem 1.5rem 6rem; }
+
+        /* ── Stats ── */
+        .stats-row {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+            margin-bottom:3rem;
+        }
+        .stat-card {
+            background:#fff; border:1px solid var(--purple-100); border-radius:20px;
+            padding:2rem 1rem; text-align:center;
+            box-shadow:0 4px 24px rgba(29,78,216,.07);
+        }
+        .stat-num {
+            font-family:var(--font-display); font-size:2.5rem; font-weight:900;
+            background:linear-gradient(135deg,var(--purple-700),var(--purple-500));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+            display:block; margin-bottom:.25rem;
+        }
+        .stat-label { color:var(--gray-600); font-size:.9rem; font-weight:500; }
+
+        /* ── Historia timeline ── */
+        .timeline { margin-bottom:3rem; }
+        .timeline-item {
+            display:flex; gap:1.5rem; margin-bottom:2rem; position:relative;
+        }
+        .timeline-item::before {
+            content:''; position:absolute; left:19px; top:40px;
+            width:2px; bottom:-2rem; background:var(--purple-100);
+        }
+        .timeline-item:last-child::before { display:none; }
+        .timeline-dot {
+            width:40px; height:40px; border-radius:50%; flex-shrink:0;
+            background:linear-gradient(135deg,var(--purple-700),var(--purple-900));
+            display:flex; align-items:center; justify-content:center;
+            color:#fff; font-weight:800; font-size:.75rem; font-family:var(--font-display);
+            position:relative; z-index:1;
+        }
+        .timeline-content {
+            background:#fff; border:1px solid var(--purple-100); border-radius:16px;
+            padding:1.25rem 1.5rem; flex:1;
+            box-shadow:0 2px 12px rgba(29,78,216,.06);
+        }
+        .timeline-year { font-family:var(--font-display); font-size:.8rem; font-weight:700; color:var(--purple-700); text-transform:uppercase; letter-spacing:.05em; margin-bottom:.3rem; }
+        .timeline-title { font-family:var(--font-display); font-size:1.05rem; font-weight:800; color:var(--purple-900); margin-bottom:.4rem; }
+        .timeline-desc { font-size:.9rem; color:var(--gray-600); line-height:1.7; }
+
+        /* ── Misión Visión ── */
+        .mv-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:3rem; }
+        .mv-card {
+            background:#fff; border:1px solid var(--purple-100); border-radius:20px;
+            padding:2rem 1.75rem; box-shadow:0 4px 24px rgba(29,78,216,.07);
+        }
+        .mv-icon { font-size:2rem; margin-bottom:.75rem; }
+        .mv-title { font-family:var(--font-display); font-size:1.15rem; font-weight:800; color:var(--purple-900); margin-bottom:.75rem; }
+        .mv-text { color:var(--gray-600); line-height:1.8; font-size:.95rem; }
+
+        /* ── Equipo ── */
+        .team-section { margin-bottom:3rem; }
+        .section-heading { font-family:var(--font-display); font-size:1.5rem; font-weight:800; color:var(--purple-900); margin-bottom:1.5rem; }
+        .team-grid-n { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .team-card-n {
+            background:#fff; border:1px solid var(--purple-100); border-radius:20px;
+            padding:2rem 1rem; text-align:center;
+            box-shadow:0 4px 24px rgba(29,78,216,.07);
+            transition:transform .3s, box-shadow .3s;
+        }
+        .team-card-n:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(29,78,216,.14); }
+        .team-avatar-n {
+            width:80px; height:80px; border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            margin:0 auto 1rem;
+            font-family:var(--font-display); font-size:1.6rem; font-weight:800; color:#fff;
+        }
+        .team-name-n { font-family:var(--font-display); font-size:1rem; font-weight:800; color:var(--purple-900); margin-bottom:.25rem; }
+        .team-role-n { color:var(--purple-700); font-size:.85rem; font-weight:600; }
+
+        /* ── WhatsApp FAB ── */
+        .whatsapp-fab { position:fixed; bottom:1.75rem; right:1.75rem; z-index:9999; width:58px; height:58px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 24px rgba(37,211,102,.45); transition:transform .3s,box-shadow .3s; }
+        .whatsapp-fab:hover { transform:scale(1.12) translateY(-3px); box-shadow:0 12px 32px rgba(37,211,102,.55); }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .stats-row { grid-template-columns:1fr 1fr; }
+            .mv-grid { grid-template-columns:1fr; }
+            .team-grid-n { grid-template-columns:1fr 1fr; }
+            .nosotros-body { padding:2.5rem 1rem 4rem; }
+        }
+        @media(max-width:480px) {
+            .stats-row { grid-template-columns:1fr; }
+            .team-grid-n { grid-template-columns:repeat(3,1fr); gap:.75rem; }
+            .team-avatar-n { width:60px; height:60px; font-size:1.2rem; }
+            .team-name-n { font-size:.85rem; }
+            .team-role-n { font-size:.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+            <div class="navbar-logo-icon"><img src="./img/logo.jpg" alt="Logo SERCAP"></div>
+            <span>SERCAP</span>
+        </a>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="index.html" class="navbar-link">Inicio</a></li>
+            <li><a href="nosotros.html" class="navbar-link active">Nosotros</a></li>
+            <li><a href="libros.html" class="navbar-link">Catálogo</a></li>
+            <li><a href="faq.html" class="navbar-link">FAQ</a></li>
+            <li><a href="contacto.html" class="navbar-link">Contacto</a></li>
+            <li><a href="libros.html" class="navbar-cta">Ver Libros</a></li>
+        </ul>
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="nosotros-hero">
+    <div class="nosotros-hero-badge">Desde 1995</div>
+    <h1>Sobre <span>Nosotros</span></h1>
+    <p>Más de tres décadas formando generaciones de estudiantes con pasión por la informática y la tecnología.</p>
+</section>
+
+<!-- ══ CONTENIDO ══ -->
+<div class="nosotros-body">
+
+    <!-- Stats -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <span class="stat-num">31+</span>
+            <span class="stat-label">Años de experiencia</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-num">5000+</span>
+            <span class="stat-label">Estudiantes formados</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-num">18+</span>
+            <span class="stat-label">Libros educativos</span>
+        </div>
+    </div>
+
+    <!-- Quiénes somos -->
+    <div class="legal-card">
+        <h2>¿Quiénes somos?</h2>
+        <p>SERCAP es una empresa paraguaya fundada en 1995, dedicada a la innovación educativa en el área de Informática. Ofrecemos materiales didácticos, libros educativos y capacitaciones presenciales y virtuales para alumnos, docentes e instituciones.</p>
+        <p>Somos un equipo comprometido con brindar soluciones integrales en capacitación tecnológica, adaptadas a cada nivel del sistema educativo: desde el Nivel Inicial hasta el Bachillerato Técnico en Informática.</p>
+        <p>A lo largo de más de tres décadas hemos acompañado la transformación digital de la educación paraguaya, siendo una referencia en la producción de materiales educativos de calidad.</p>
+    </div>
+
+    <!-- Historia -->
+    <h2 class="section-heading" id="historia">Nuestra Historia</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot">95</div>
+            <div class="timeline-content">
+                <div class="timeline-year">1995 — Fundación</div>
+                <div class="timeline-title">Nace SERCAP</div>
+                <div class="timeline-desc">Con la visión de transformar la educación en Informática en Paraguay, SERCAP abre sus puertas ofreciendo capacitaciones presenciales a docentes e instituciones educativas.</div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">00</div>
+            <div class="timeline-content">
+                <div class="timeline-year">2000 — Expansión</div>
+                <div class="timeline-title">Primeros materiales didácticos</div>
+                <div class="timeline-desc">Comenzamos a desarrollar nuestra propia línea de libros educativos adaptados al currículo nacional, cubriendo desde el Nivel Inicial hasta el Tercer Ciclo.</div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">10</div>
+            <div class="timeline-content">
+                <div class="timeline-year">2010 — Crecimiento</div>
+                <div class="timeline-title">Incorporación del área de Robótica</div>
+                <div class="timeline-desc">SERCAP amplía su oferta educativa con programas de Robótica e Inteligencia Tecnológica, respondiendo a las nuevas demandas del mercado educativo.</div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">20</div>
+            <div class="timeline-content">
+                <div class="timeline-year">2020 — Digitalización</div>
+                <div class="timeline-title">Capacitación virtual</div>
+                <div class="timeline-desc">Adaptamos nuestra metodología al entorno digital, ofreciendo formación virtual sin perder la calidad de nuestros materiales presenciales.</div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">26</div>
+            <div class="timeline-content">
+                <div class="timeline-year">2026 — Hoy</div>
+                <div class="timeline-title">Más de 31 años y seguimos creciendo</div>
+                <div class="timeline-desc">Con 18+ libros en catálogo, más de 5000 estudiantes formados y presencia digital en toda la región, SERCAP sigue siendo la referencia en educación informática de Paraguay.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Misión y Visión -->
+    <h2 class="section-heading">Misión y Visión</h2>
+    <div class="mv-grid">
+        <div class="mv-card">
+            <div class="mv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+            <div class="mv-title">Nuestra Misión</div>
+            <div class="mv-text">Brindar materiales educativos y capacitaciones de alta calidad en el área de Informática, contribuyendo al desarrollo de competencias digitales en estudiantes y docentes de Paraguay.</div>
+        </div>
+        <div class="mv-card">
+            <div class="mv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="mv-title">Nuestra Visión</div>
+            <div class="mv-text">Ser la empresa líder en soluciones educativas tecnológicas de Paraguay, reconocida por la innovación, calidad y el impacto positivo en cada generación que formamos.</div>
+        </div>
+        <div class="mv-card">
+            <div class="mv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true"><path d="M2.7 10.3a2.41 2.41 0 000 3.41l7.59 7.59a2.41 2.41 0 003.41 0l7.59-7.59a2.41 2.41 0 000-3.41l-7.59-7.59a2.41 2.41 0 00-3.41 0z"/></svg></div>
+            <div class="mv-title">Nuestros Valores</div>
+            <div class="mv-text">Excelencia educativa, innovación constante, compromiso con el estudiante y la institución, y una pasión genuina por la enseñanza que nos impulsa cada día.</div>
+        </div>
+        <div class="mv-card">
+            <div class="mv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="mv-title">Nuestro Compromiso</div>
+            <div class="mv-text">Actualizar permanentemente nuestros materiales para que siempre estén alineados con las últimas tendencias tecnológicas y el currículo educativo nacional.</div>
+        </div>
+    </div>
+
+    <!-- Equipo -->
+    <div class="team-section" id="equipo">
+        <h2 class="section-heading">Nuestro Equipo</h2>
+        <div class="team-grid-n">
+            <div class="team-card-n">
+                <div class="team-avatar-n" style="background:linear-gradient(135deg,#1d4ed8,#0a192f)">JA</div>
+                <div class="team-name-n">Jorge Arrúa</div>
+                <div class="team-role-n">Jefe</div>
+            </div>
+            <div class="team-card-n">
+                <div class="team-avatar-n" style="background:linear-gradient(135deg,#14B8A6,#0D9488)">KA</div>
+                <div class="team-name-n">Khaterin Arrúa</div>
+                <div class="team-role-n">Jefa de Robótica</div>
+            </div>
+            <div class="team-card-n">
+                <div class="team-avatar-n" style="background:linear-gradient(135deg,#7C3AED,#14B8A6)">JA</div>
+                <div class="team-name-n">Jorge Arrúa</div>
+                <div class="team-role-n">Jefe de Marketing y Ventas</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="legal-card" style="text-align:center; background:linear-gradient(135deg,var(--purple-950),var(--purple-800)); border:none;">
+        <h2 style="color:#fff; justify-content:center;">¿Querés conocer nuestros libros?</h2>
+        <p style="color:var(--purple-200); margin-bottom:1.5rem;">Explorá nuestro catálogo completo con materiales para todos los niveles educativos.</p>
+        <a href="libros.html" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;border-radius:100px;font-weight:700;font-size:1rem;transition:transform .25s;">Ver catálogo completo →</a>
+    </div>
+
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-logo">
+                    <div class="navbar-logo-icon"><img src="./img/logo.jpg" alt="Logo SERCAP"></div>
+                    SERCAP
+                </div>
+                <p class="footer-description">Desde 1995 transformando la educación en Informática con materiales didácticos innovadores para estudiantes, docentes e instituciones de Paraguay.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/people/Sercap/100063631775891/" class="social-link" aria-label="Facebook" target="_blank"><img src="./img/mini-icons/fb-icon.svg" alt="Facebook" width="20px"></a>
+                    <a href="https://www.instagram.com/sercap1995?igsh=cTNyZ2Y4M3Jtcmlj" class="social-link" aria-label="Instagram" target="_blank"><img src="./img/mini-icons/ig-icon.svg" alt="Instagram" style="width:20px;border-radius:4px;"></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Catálogo</h4>
+                <ul class="footer-links">
+                    <li><a href="libros.html">Ver todos los libros</a></li>
+                    <li><a href="libros.html">Nivel Inicial</a></li>
+                    <li><a href="libros.html">Primer y Segundo Ciclo</a></li>
+                    <li><a href="libros.html">Bachillerato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="nosotros.html" class="active-page">Sobre Nosotros</a></li>
+                    <li><a href="nosotros.html#equipo">Nuestro Equipo</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="terminos-y-condiciones.html">Términos y Condiciones</a></li>
+                    <li><a href="politica-de-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="aviso-legal.html">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <span>© 2026 SERCAP. Todos los derechos reservados.</span>
+            <span>Hecho para estudiantes de Paraguay</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/595981911679?text=Hola%20SERCAP%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
+   class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+<script src="legal.js"></script>
+</body>
+</html>
